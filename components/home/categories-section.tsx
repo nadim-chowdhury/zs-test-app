@@ -45,7 +45,7 @@ export default function CategoriesSection() {
   const visible = categories.slice(startIndex, startIndex + visibleCount);
 
   return (
-    <section className="bg-foreground/90 pt-10 pb-2 md:pt-16 md:pb-0 my-14 md:my-64">
+    <section className="bg-foreground/90 pt-10 pb-2 md:pt-16 md:pb-0 my-14 md:mt-72">
       <div className="">
         {/* Header */}
         <div className="flex items-center justify-between mb-8 md:mb-10 container mx-auto px-4 md:px-0">
@@ -56,14 +56,14 @@ export default function CategoriesSection() {
             <button
               onClick={handlePrev}
               disabled={!canPrev}
-              className="w-10 h-10 md:w-12 md:h-12 rounded-lg border border-background/30 flex items-center justify-center transition-colors bg-background text-foreground hover:bg-background/10 disabled:opacity-30 disabled:cursor-not-allowed"
+              className="w-8 h-8 rounded-lg border border-background/30 flex items-center justify-center transition-colors bg-background text-foreground hover:bg-background/10 disabled:opacity-30 disabled:cursor-not-allowed"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
             <button
               onClick={handleNext}
               disabled={!canNext}
-              className="w-10 h-10 md:w-12 md:h-12 rounded-lg border border-background/30 flex items-center justify-center bg-background text-foreground transition-colors hover:bg-background/10 disabled:opacity-30 disabled:cursor-not-allowed"
+              className="w-8 h-8 rounded-lg border border-background/30 flex items-center justify-center bg-background text-foreground transition-colors hover:bg-background/10 disabled:opacity-30 disabled:cursor-not-allowed"
             >
               <ChevronRight className="w-5 h-5" />
             </button>
