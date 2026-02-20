@@ -42,7 +42,7 @@ export default function Header() {
 
   return (
     <header className="w-full pt-4 md:pt-8 px-4 md:px-0 sticky top-2 md:top-4 z-50">
-      <nav className="flex items-center justify-between container mx-auto bg-accent px-4 py-2 md:px-8 md:py-6 rounded-xl md:rounded-3xl shadow-sm">
+      <nav className="flex items-center justify-between container mx-auto bg-accent/95 px-4 py-2 md:px-8 md:py-6 rounded-xl md:rounded-3xl shadow-sm backdrop-blur-md">
         {/* LEFT NAV */}
         <NavigationMenu className="hidden lg:flex">
           <NavigationMenuList className="flex gap-4">
@@ -60,7 +60,7 @@ export default function Header() {
               <NavigationMenuTrigger className="bg-transparent font-bold">
                 Men
               </NavigationMenuTrigger>
-              <NavigationMenuContent>
+              <NavigationMenuContent className="backdrop-blur-md bg-accent/90">
                 <ul className="grid grid-cols-3 w-96 gap-2 p-4">
                   {menShoes.map((item) => (
                     <li key={item.name}>
@@ -81,7 +81,7 @@ export default function Header() {
               <NavigationMenuTrigger className="bg-transparent font-bold">
                 Women
               </NavigationMenuTrigger>
-              <NavigationMenuContent>
+              <NavigationMenuContent className="backdrop-blur-md bg-accent/90">
                 <ul className="grid grid-cols-3 w-96 gap-2 p-4">
                   {womenShoes.map((item) => (
                     <li key={item.name}>
@@ -153,7 +153,7 @@ export default function Header() {
       </nav>
 
       {open && (
-        <div className="absolute top-24 left-1/2 -translate-x-1/2 w-[90%] z-50 rounded-2xl bg-accent p-6 shadow-md lg:hidden">
+        <div className="absolute top-24 left-1/2 -translate-x-1/2 w-[90%] z-50 rounded-2xl bg-accent/95 backdrop-blur-md p-6 shadow-md lg:hidden">
           <div className="flex flex-col gap-4 font-bold">
             <Link href="/">New Drops 🔥</Link>
 

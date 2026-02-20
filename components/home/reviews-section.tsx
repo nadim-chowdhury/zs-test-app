@@ -33,7 +33,6 @@ export default function ReviewsSection() {
   ];
 
   const isMobile = useIsMobile();
-  console.log("🚀 ~ isMobile:", isMobile);
 
   return (
     <section className="container mx-auto my-14 md:my-20 px-4 md:px-0">

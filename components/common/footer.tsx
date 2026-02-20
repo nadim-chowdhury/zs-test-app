@@ -154,7 +154,7 @@ export default function Footer() {
                     href={href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-9 h-9 rounded-full bg-background/10 hover:bg-background/20 flex items-center justify-center transition-colors"
+                    className="w-9 h-9 rounded-full flex items-center justify-center transition-colors"
                     aria-label={label}
                   >
                     <Icon className="w-4 h-4 text-background" />
@@ -165,7 +165,7 @@ export default function Footer() {
                   href="https://tiktok.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-full bg-background/10 hover:bg-background/20 flex items-center justify-center transition-colors"
+                  className="w-9 h-9 rounded-full flex items-center justify-center transition-colors"
                   aria-label="TikTok"
                 >
                   <svg
