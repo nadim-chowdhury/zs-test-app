@@ -36,7 +36,7 @@ export default function ReviewsSection() {
 
   return (
     <section className="container mx-auto my-14 md:my-20 px-4 md:px-0">
-      <div className="flex items-end justify-between">
+      <div className="flex items-end justify-between px-4">
         <h1 className="uppercase font-bold text-3xl md:text-7xl">Reviews</h1>
 
         <Button className="uppercase bg-primary h-9 md:h-12 md:px-8">
@@ -44,7 +44,7 @@ export default function ReviewsSection() {
         </Button>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 my-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 my-12 px-4">
         {(isMobile ? reviews.slice(0, 1) : reviews).map((item, idx) => (
           <ReviewsCard key={idx} data={item} />
         ))}

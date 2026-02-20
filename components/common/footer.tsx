@@ -40,7 +40,7 @@ export default function Footer() {
   return (
     <footer className="container mx-auto px-4 md:px-0">
       {/* ── Newsletter Banner ── */}
-      <div className="bg-primary rounded-t-3xl md:rounded-t-[48px] px-6 md:px-16 py-10 md:py-22">
+      <div className="bg-primary rounded-t-3xl md:rounded-t-[48px] px-6 md:px-16 py-10 md:py-22 mx-4">
         <div className="container mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
           {/* Left copy */}
           <div className="w-full whitespace-nowrap">
@@ -90,8 +90,8 @@ export default function Footer() {
       </div>
 
       {/* ── Dark Nav Section ── */}
-      <div className="bg-linear-to-b from-primary to-transparent from-0% to-20%">
-        <div className="bg-foreground/90 px-6 md:px-16 pt-12 pb-0 mb-6 md:mb-10 rounded-b-4xl rounded-t-4xl md:rounded-b-[48px] md:rounded-t-[48px]">
+      <div className="bg-linear-to-b from-primary to-transparent from-0% to-20% mx-4">
+        <div className="bg-foreground/90 px-6 md:px-16 pt-12 pb-0 rounded-b-4xl rounded-t-4xl md:rounded-b-[48px] md:rounded-t-[48px]">
           <div className="container mx-auto grid grid-cols-2 md:grid-cols-5 gap-10 md:gap-8 pb-6 md:pb-12">
             {/* About us */}
             <div className="col-span-2 ">
@@ -193,7 +193,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <p className="mb-6 md:mb-10 text-center font-medium">
+      <p className="my-4 md:my-8 text-center font-medium">
         &copy; All rights reserved
       </p>
     </footer>

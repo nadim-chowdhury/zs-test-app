@@ -31,7 +31,7 @@ export default function CategoriesSection() {
     <section className="bg-foreground/90 pt-10 pb-2 md:pt-24 md:pb-0 my-14 md:mt-28">
       <div className="">
         {/* Header */}
-        <div className="flex items-center justify-between mb-8 md:mb-10 container mx-auto px-4 md:px-0">
+        <div className="flex items-center justify-between mb-8 md:mb-10 container mx-auto px-4">
           <h2 className="uppercase font-bold text-3xl md:text-5xl text-background md:mb-8">
             Categories
           </h2>

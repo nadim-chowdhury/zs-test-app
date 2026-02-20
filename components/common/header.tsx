@@ -20,28 +20,33 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { Input } from "../ui/input";
+import { useDispatch, useSelector } from "react-redux";
+import { increment } from "@/store/slices/counterSlice";
 
 const menShoes = [
-  { name: "Sneakers", href: "/men/sneakers" },
-  { name: "Running", href: "/men/running" },
-  { name: "Basketball", href: "/men/basketball" },
-  { name: "Casual", href: "/men/casual" },
-  { name: "Formal", href: "/men/formal" },
+  { name: "Sneakers", href: "/" },
+  { name: "Running", href: "/" },
+  { name: "Basketball", href: "/" },
+  { name: "Casual", href: "/" },
+  { name: "Formal", href: "/" },
 ];
 
 const womenShoes = [
-  { name: "Sneakers", href: "/women/sneakers" },
-  { name: "Heels", href: "/women/heels" },
-  { name: "Flats", href: "/women/flats" },
-  { name: "Sports", href: "/women/sports" },
-  { name: "Sandals", href: "/women/sandals" },
+  { name: "Sneakers", href: "/" },
+  { name: "Heels", href: "/" },
+  { name: "Flats", href: "/" },
+  { name: "Sports", href: "/" },
+  { name: "Sandals", href: "/" },
 ];
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const count = useSelector((state: any) => state.counter.value);
+  console.log("🚀 ~ count:", count);
+  const dispatch = useDispatch();
 
   return (
-    <header className="w-full pt-4 md:pt-8 px-4 md:px-0 sticky top-2 md:top-4 z-50">
+    <header className=" pt-4 md:pt-8 mx-4 md:px-0 sticky top-2 md:top-4 z-50">
       <nav className="flex items-center justify-between container mx-auto bg-accent/95 px-4 py-2 md:px-8 md:py-6 rounded-xl md:rounded-3xl shadow-sm backdrop-blur-md">
         {/* LEFT NAV */}
         <NavigationMenu className="hidden lg:flex">
@@ -146,8 +151,11 @@ export default function Header() {
             <User className="w-6 h-6" strokeWidth={3} />
           </Button>
 
-          <Button className="w-9 rounded-full bg-orange-500 text-white hover:bg-orange-500">
-            0
+          <Button
+            onClick={() => dispatch(increment())}
+            className="w-9 rounded-full bg-orange-500 text-white hover:bg-orange-500"
+          >
+            {count}
           </Button>
         </div>
       </nav>
