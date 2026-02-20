@@ -20,7 +20,7 @@ export default function ProductCard({ data }: any) {
         ADIDAS 4DFWD X PARLEY RUNNING SHOES
       </h3>
 
-      <Button className="w-full bg-foreground uppercase md:h-12">
+      <Button className="w-full bg-foreground uppercase md:h-12 text-xs md:text-base">
         View Product - <span className="text-amber-500">$125</span>
       </Button>
     </div>

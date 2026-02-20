@@ -42,7 +42,7 @@ export default function Header() {
 
   return (
     <header className="w-full pt-4 md:pt-8 px-4 md:px-0 sticky top-2 md:top-4 z-50">
-      <nav className="flex items-center justify-between container mx-auto bg-accent p-4 md:px-8 md:py-6 rounded-3xl shadow-sm">
+      <nav className="flex items-center justify-between container mx-auto bg-accent px-4 py-2 md:px-8 md:py-6 rounded-xl md:rounded-3xl shadow-sm">
         {/* LEFT NAV */}
         <NavigationMenu className="hidden lg:flex">
           <NavigationMenuList className="flex gap-4">

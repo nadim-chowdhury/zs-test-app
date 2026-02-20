@@ -95,10 +95,10 @@ export default function CategoriesSection() {
 
                 {/* Bottom row: label + arrow button */}
                 <div className="flex items-end justify-between mx-4 mt-4 md:mt-6">
-                  <h3 className="font-bold text-lg md:text-4xl uppercase leading-tight whitespace-pre-line">
+                  <h3 className="font-bold text-xl md:text-4xl uppercase leading-tight whitespace-pre-line">
                     {cat.label}
                   </h3>
-                  <button className="w-10 h-10 md:w-14 md:h-14 bg-foreground rounded-xl md:rounded-2xl flex items-center justify-center shrink-0 hover:opacity-80 transition-opacity">
+                  <button className="w-8 h-8 md:w-12 md:h-12 bg-foreground rounded flex items-center justify-center shrink-0 hover:opacity-80 transition-opacity">
                     <ArrowUpRight className="w-5 h-5 md:w-6 md:h-6 text-background" />
                   </button>
                 </div>

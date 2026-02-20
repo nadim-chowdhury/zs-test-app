@@ -90,106 +90,112 @@ export default function Footer() {
       </div>
 
       {/* ── Dark Nav Section ── */}
-      <div className="bg-foreground px-6 md:px-16 pt-12 pb-0 mb-12 rounded-b-[48px]">
-        <div className="container mx-auto grid grid-cols-2 md:grid-cols-5 gap-10 md:gap-8 pb-6 md:pb-12">
-          {/* About us */}
-          <div className="col-span-2 ">
-            <h4 className="text-amber-500 font-bold text-lg md:text-3xl mb-3">
-              About us
-            </h4>
-            <p className="text-background/80 leading-relaxed font-medium">
-              We are the biggest hyperstore in the universe. We got you all
-              cover with our exclusive collections and latest drops.
-            </p>
-          </div>
+      <div className="bg-linear-to-b from-primary to-transparent from-0% to-20%">
+        <div className="bg-foreground/90 px-6 md:px-16 pt-12 pb-0 mb-6 md:mb-10 rounded-b-4xl rounded-t-4xl md:rounded-b-[48px] md:rounded-t-[48px]">
+          <div className="container mx-auto grid grid-cols-2 md:grid-cols-5 gap-10 md:gap-8 pb-6 md:pb-12">
+            {/* About us */}
+            <div className="col-span-2 ">
+              <h4 className="text-amber-500 font-bold text-lg md:text-3xl mb-3">
+                About us
+              </h4>
+              <p className="text-background/80 leading-relaxed font-medium">
+                We are the biggest hyperstore in the universe. We got you all
+                cover with our exclusive collections and latest drops.
+              </p>
+            </div>
 
-          {/* Categories */}
-          <div className="col-span-2 md:col-span-1">
-            <h4 className="text-amber-500 font-bold text-lg md:text-xl mb-3">
-              Categories
-            </h4>
-            <ul className="flex flex-col gap-2">
-              {categories.map((item) => (
-                <li key={item.label}>
+            {/* Categories */}
+            <div className="col-span-2 md:col-span-1">
+              <h4 className="text-amber-500 font-bold text-lg md:text-xl mb-3">
+                Categories
+              </h4>
+              <ul className="flex flex-col gap-2">
+                {categories.map((item) => (
+                  <li key={item.label}>
+                    <Link
+                      href={item.href}
+                      className="text-background/80 hover:text-background transition-colors font-medium"
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Company */}
+            <div className="col-span-2 md:col-span-1">
+              <h4 className="text-amber-500 font-bold text-lg md:text-xl mb-3">
+                Company
+              </h4>
+              <ul className="flex flex-col gap-2">
+                {company.map((item) => (
+                  <li key={item.label}>
+                    <Link
+                      href={item.href}
+                      className="text-background/80 hover:text-background transition-colors font-medium"
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Follow us */}
+            <div className="col-span-2 md:col-span-1">
+              <h4 className="text-amber-500 font-bold text-lg md:text-xl mb-3">
+                Follow us
+              </h4>
+              <div className="flex items-center gap-3">
+                {socials.map(({ icon: Icon, href, label }) => (
                   <Link
-                    href={item.href}
-                    className="text-background/80 hover:text-background transition-colors font-medium"
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-9 h-9 rounded-full bg-background/10 hover:bg-background/20 flex items-center justify-center transition-colors"
+                    aria-label={label}
                   >
-                    {item.label}
+                    <Icon className="w-4 h-4 text-background" />
                   </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Company */}
-          <div className="col-span-2 md:col-span-1">
-            <h4 className="text-amber-500 font-bold text-lg md:text-xl mb-3">
-              Company
-            </h4>
-            <ul className="flex flex-col gap-2">
-              {company.map((item) => (
-                <li key={item.label}>
-                  <Link
-                    href={item.href}
-                    className="text-background/80 hover:text-background transition-colors font-medium"
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Follow us */}
-          <div className="col-span-2 md:col-span-1">
-            <h4 className="text-amber-500 font-bold text-lg md:text-xl mb-3">
-              Follow us
-            </h4>
-            <div className="flex items-center gap-3">
-              {socials.map(({ icon: Icon, href, label }) => (
+                ))}
+                {/* TikTok */}
                 <Link
-                  key={label}
-                  href={href}
+                  href="https://tiktok.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-9 h-9 rounded-full bg-background/10 hover:bg-background/20 flex items-center justify-center transition-colors"
-                  aria-label={label}
+                  aria-label="TikTok"
                 >
-                  <Icon className="w-4 h-4 text-background" />
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    className="w-4 h-4 text-background"
+                  >
+                    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.87a8.18 8.18 0 0 0 4.78 1.52V7a4.85 4.85 0 0 1-1.01-.31z" />
+                  </svg>
                 </Link>
-              ))}
-              {/* TikTok */}
-              <Link
-                href="https://tiktok.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-background/10 hover:bg-background/20 flex items-center justify-center transition-colors"
-                aria-label="TikTok"
-              >
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  className="w-4 h-4 text-background"
-                >
-                  <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.87a8.18 8.18 0 0 0 4.78 1.52V7a4.85 4.85 0 0 1-1.01-.31z" />
-                </svg>
-              </Link>
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* ── Giant KICKS watermark ── */}
-        <div className="overflow-hidden flex items-center justify-center mt-8">
-          <Image
-            src="/assets/logo_half.png"
-            alt="KICKS"
-            width={1280}
-            height={720}
-            className="w-full h-auto"
-          />
+          {/* ── Giant KICKS watermark ── */}
+          <div className="overflow-hidden flex items-center justify-center mt-8">
+            <Image
+              src="/assets/logo_half.png"
+              alt="KICKS"
+              width={1280}
+              height={720}
+              className="w-full h-auto"
+            />
+          </div>
         </div>
       </div>
+
+      <p className="mb-6 md:mb-10 text-center font-medium">
+        &copy; All rights reserved
+      </p>
     </footer>
   );
 }
