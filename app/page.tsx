@@ -1,4 +1,5 @@
 import Banner from "@/components/home/banner";
+import CategoriesSection from "@/components/home/categories-section";
 import NewDropsSection from "@/components/home/new-drops-section";
 
 export default function Home() {
@@ -6,6 +7,7 @@ export default function Home() {
     <section>
       <Banner />
       <NewDropsSection />
+      <CategoriesSection />
     </section>
   );
 }

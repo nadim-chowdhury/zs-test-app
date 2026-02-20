@@ -16,7 +16,7 @@ export default function NewDropsSection() {
         </Button>
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 md:gap-8 mt-12">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 md:gap-8 my-12">
         {[1, 2, 3, 4].map((item, idx) => (
           <ProductCard key={idx} data={item} />
         ))}
