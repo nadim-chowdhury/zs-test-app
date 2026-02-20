@@ -1,7 +1,10 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "../ui/button";
-import { Search, User } from "lucide-react";
+import { Search, User, Menu } from "lucide-react";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -11,6 +14,12 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { Input } from "../ui/input";
 
 const menShoes = [
   { name: "Sneakers", href: "/men/sneakers" },
@@ -29,11 +38,13 @@ const womenShoes = [
 ];
 
 export default function Header() {
+  const [open, setOpen] = useState(false);
+
   return (
-    <header className="relative w-full">
-      <nav className="absolute top-8 left-1/2 -translate-x-1/2 flex items-center justify-between container mx-auto bg-accent px-10 py-6 rounded-3xl shadow-sm">
+    <header className="w-full pt-4 md:pt-8 px-4 md:px-0">
+      <nav className="flex items-center justify-between container mx-auto bg-accent p-4 md:px-8 md:py-6 rounded-3xl shadow-sm">
         {/* LEFT NAV */}
-        <NavigationMenu>
+        <NavigationMenu className="hidden lg:flex">
           <NavigationMenuList className="flex gap-4">
             <NavigationMenuItem>
               <NavigationMenuLink
@@ -50,12 +61,12 @@ export default function Header() {
                 Men
               </NavigationMenuTrigger>
               <NavigationMenuContent>
-                <ul className="grid w-48 gap-2 p-4">
+                <ul className="grid grid-cols-3 w-96 gap-2 p-4">
                   {menShoes.map((item) => (
                     <li key={item.name}>
                       <Link
                         href={item.href}
-                        className="block rounded-md px-3 py-2 text-sm hover:bg-muted"
+                        className="block rounded-md px-3 py-2 text-sm font-medium hover:bg-muted"
                       >
                         {item.name}
                       </Link>
@@ -71,12 +82,12 @@ export default function Header() {
                 Women
               </NavigationMenuTrigger>
               <NavigationMenuContent>
-                <ul className="grid w-48 gap-2 p-4">
+                <ul className="grid grid-cols-3 w-96 gap-2 p-4">
                   {womenShoes.map((item) => (
                     <li key={item.name}>
                       <Link
                         href={item.href}
-                        className="block rounded-md px-3 py-2 text-sm hover:bg-muted"
+                        className="block rounded-md px-3 py-2 text-sm font-medium hover:bg-muted"
                       >
                         {item.name}
                       </Link>
@@ -88,32 +99,92 @@ export default function Header() {
           </NavigationMenuList>
         </NavigationMenu>
 
+        {/* MOBILE VIEW MENU */}
+        <Button
+          variant="ghost"
+          size="icon"
+          className="lg:hidden hover:bg-muted"
+          onClick={() => setOpen(!open)}
+        >
+          <Menu className="w-6 h-6" strokeWidth={3} />
+        </Button>
+
         {/* LOGO */}
-        <div className="absolute left-1/2 -translate-x-1/2">
+        <div className="md:absolute md:left-1/2 md:-translate-x-1/2">
           <Image
             src="/assets/logo_dark.png"
             alt="KICKS"
-            width={120}
-            height={32}
+            width={96}
+            height={28}
+            className="sm:w-[120px]"
             priority
           />
         </div>
 
         {/* RIGHT ACTIONS */}
-        <div className="flex items-center gap-8">
-          <Button variant="ghost" size="icon" className="">
+        <div className="flex items-center gap-2 sm:gap-8">
+          {/* <Button variant="ghost" size="icon" className="hidden md:flex">
             <Search className="w-6 h-6" strokeWidth={3} />
-          </Button>
+          </Button> */}
 
-          <Button variant="ghost" size="icon">
+          <Popover>
+            <PopoverTrigger asChild>
+              <Button
+                variant="ghost"
+                size="icon"
+                className="hidden md:flex hover:bg-muted"
+              >
+                <Search className="w-6 h-6" strokeWidth={3} />
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent className="w-80">
+              <Input placeholder="Search here" />
+            </PopoverContent>
+          </Popover>
+
+          <Button variant="ghost" size="icon" className="hover:bg-muted">
             <User className="w-6 h-6" strokeWidth={3} />
           </Button>
 
-          <Button className="h-9 w-9 rounded-full bg-orange-500 text-white hover:bg-orange-500">
+          <Button className="w-9 rounded-full bg-orange-500 text-white hover:bg-orange-500">
             0
           </Button>
         </div>
       </nav>
+
+      {open && (
+        <div className="absolute top-24 left-1/2 -translate-x-1/2 w-[90%] rounded-2xl bg-accent p-6 shadow-md lg:hidden">
+          <div className="flex flex-col gap-4 font-bold">
+            <Link href="/">New Drops 🔥</Link>
+
+            <div>
+              <p className="mb-2">Men</p>
+              {menShoes.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="block pl-4 py-1"
+                >
+                  {item.name}
+                </Link>
+              ))}
+            </div>
+
+            <div>
+              <p className="mb-2">Women</p>
+              {womenShoes.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="block pl-4 py-1"
+                >
+                  {item.name}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
