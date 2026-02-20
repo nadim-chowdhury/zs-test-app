@@ -45,11 +45,11 @@ export default function CategoriesSection() {
   const visible = categories.slice(startIndex, startIndex + visibleCount);
 
   return (
-    <section className="bg-foreground/90 pt-10 pb-2 md:pt-16 md:pb-0 my-14 md:mt-72">
+    <section className="bg-foreground/90 pt-10 pb-2 md:pt-24 md:pb-0 my-14 md:mt-72">
       <div className="">
         {/* Header */}
         <div className="flex items-center justify-between mb-8 md:mb-10 container mx-auto px-4 md:px-0">
-          <h2 className="uppercase font-bold text-3xl md:text-5xl text-background">
+          <h2 className="uppercase font-bold text-3xl md:text-5xl text-background md:mb-8">
             Categories
           </h2>
           <div className="flex items-center gap-2">
@@ -76,7 +76,7 @@ export default function CategoriesSection() {
             {visible.map((cat, idx) => (
               <div
                 key={cat.id}
-                className={`relative flex flex-col justify-between p-4 md:p-8 pt-6 md:pt-10 min-h-[280px] md:min-h-[420px] ${
+                className={`relative flex flex-col justify-between p-4 md:p-8 pt-6 md:pt-10 min-h-[280px] md:min-h-[620px] ${
                   idx % 2 === 1
                     ? "bg-accent"
                     : "bg-muted rounded-tl-2xl md:rounded-tl-[4rem]"
@@ -89,12 +89,12 @@ export default function CategoriesSection() {
                     alt={cat.label}
                     width={400}
                     height={280}
-                    className="object-contain w-full max-h-[200px] md:max-h-[280px] drop-shadow-xl"
+                    className="object-contain w-full max-h-[200px] md:max-h-[480px] drop-shadow-xl"
                   />
                 </div>
 
                 {/* Bottom row: label + arrow button */}
-                <div className="flex items-end justify-between mt-4 md:mt-6">
+                <div className="flex items-end justify-between mx-4 mt-4 md:mt-6">
                   <h3 className="font-bold text-lg md:text-4xl uppercase leading-tight whitespace-pre-line">
                     {cat.label}
                   </h3>

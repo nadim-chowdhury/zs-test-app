@@ -40,7 +40,7 @@ export default function Footer() {
   return (
     <footer className="container mx-auto px-4 md:px-0">
       {/* ── Newsletter Banner ── */}
-      <div className="bg-primary rounded-t-3xl md:rounded-t-[48px] px-6 md:px-16 py-10 md:py-28">
+      <div className="bg-primary rounded-t-3xl md:rounded-t-[48px] px-6 md:px-16 py-10 md:py-22">
         <div className="container mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
           {/* Left copy */}
           <div className="w-full whitespace-nowrap">
@@ -73,38 +73,38 @@ export default function Footer() {
           </div>
 
           {/* Right: KICKS logo */}
-          <div className="shrink-0 relative">
+          <div className="shrink-0 relative w-fit md:w-1/3">
             <Image
-              src="/assets/logo_light.png"
+              src="/assets/footer_logo.png"
               alt="KICKS"
               width={220}
               height={64}
-              className="w-36 md:w-56 brightness-0 invert"
+              className="w-48 md:w-96 block"
             />
 
-            <span className="absolute -top-4 -right-4 bg-amber-500 p-2 rounded-full flex items-center justify-center w-6 h-6 text-md font-medium text-primary">
+            {/* <span className="absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 bg-amber-500 rounded-full flex items-center justify-center w-6 h-6 text-md font-medium text-primary">
               +
-            </span>
+            </span> */}
           </div>
         </div>
       </div>
 
       {/* ── Dark Nav Section ── */}
       <div className="bg-foreground px-6 md:px-16 pt-12 pb-0 mb-12 rounded-b-[48px]">
-        <div className="container mx-auto grid grid-cols-2 md:grid-cols-5 gap-10 md:gap-8 pb-12">
+        <div className="container mx-auto grid grid-cols-2 md:grid-cols-5 gap-10 md:gap-8 pb-6 md:pb-12">
           {/* About us */}
           <div className="col-span-2 ">
-            <h4 className="text-amber-500 font-bold text-lg md:text-xl mb-3">
+            <h4 className="text-amber-500 font-bold text-lg md:text-3xl mb-3">
               About us
             </h4>
-            <p className="text-background/80 text-sm leading-relaxed font-medium">
+            <p className="text-background/80 leading-relaxed font-medium">
               We are the biggest hyperstore in the universe. We got you all
               cover with our exclusive collections and latest drops.
             </p>
           </div>
 
           {/* Categories */}
-          <div>
+          <div className="col-span-2 md:col-span-1">
             <h4 className="text-amber-500 font-bold text-lg md:text-xl mb-3">
               Categories
             </h4>
@@ -113,7 +113,7 @@ export default function Footer() {
                 <li key={item.label}>
                   <Link
                     href={item.href}
-                    className="text-background/80 hover:text-background transition-colors text-sm font-medium"
+                    className="text-background/80 hover:text-background transition-colors font-medium"
                   >
                     {item.label}
                   </Link>
@@ -123,7 +123,7 @@ export default function Footer() {
           </div>
 
           {/* Company */}
-          <div>
+          <div className="col-span-2 md:col-span-1">
             <h4 className="text-amber-500 font-bold text-lg md:text-xl mb-3">
               Company
             </h4>
@@ -132,7 +132,7 @@ export default function Footer() {
                 <li key={item.label}>
                   <Link
                     href={item.href}
-                    className="text-background/80 hover:text-background transition-colors text-sm font-medium"
+                    className="text-background/80 hover:text-background transition-colors font-medium"
                   >
                     {item.label}
                   </Link>
@@ -142,11 +142,11 @@ export default function Footer() {
           </div>
 
           {/* Follow us */}
-          <div>
+          <div className="col-span-2 md:col-span-1">
             <h4 className="text-amber-500 font-bold text-lg md:text-xl mb-3">
               Follow us
             </h4>
-            <div className="flex items-center gap-3 flex-wrap">
+            <div className="flex items-center gap-3">
               {socials.map(({ icon: Icon, href, label }) => (
                 <Link
                   key={label}

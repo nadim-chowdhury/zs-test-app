@@ -7,7 +7,7 @@ export default function Banner() {
   return (
     <section className="container mx-auto">
       <div className="flex items-center justify-center mb-6 md:mb-12 mt-4">
-        <h1 className="uppercase font-bold text-[3.5rem] md:text-[15.75rem] md:mr-4 md:leading-80">
+        <h1 className="uppercase font-bold text-[3.5rem] md:text-[15.75rem] md:mr-4 md:leading-80 mt-3 md:mt-0">
           Do it <span className="text-primary">Right</span>
         </h1>
       </div>
