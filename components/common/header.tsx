@@ -153,7 +153,7 @@ export default function Header() {
       </nav>
 
       {open && (
-        <div className="absolute top-24 left-1/2 -translate-x-1/2 w-[90%] rounded-2xl bg-accent p-6 shadow-md lg:hidden">
+        <div className="absolute top-24 left-1/2 -translate-x-1/2 w-[90%] z-50 rounded-2xl bg-accent p-6 shadow-md lg:hidden">
           <div className="flex flex-col gap-4 font-bold">
             <Link href="/">New Drops 🔥</Link>
 
