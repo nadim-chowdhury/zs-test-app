@@ -38,7 +38,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="container mx-auto px-4 md:px-0">
+    <footer className="container mx-auto">
       {/* ── Newsletter Banner ── */}
       <div className="bg-primary rounded-t-3xl md:rounded-t-[48px] px-6 md:px-16 py-10 md:py-22 mx-4">
         <div className="container mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-8">

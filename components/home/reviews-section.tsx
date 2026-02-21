@@ -35,7 +35,7 @@ export default function ReviewsSection() {
   const isMobile = useIsMobile();
 
   return (
-    <section className="container mx-auto my-14 md:my-20 px-4 md:px-0">
+    <section className="container mx-auto my-14 md:my-20">
       <div className="flex items-end justify-between px-4">
         <h1 className="uppercase font-bold text-3xl md:text-7xl">Reviews</h1>
 

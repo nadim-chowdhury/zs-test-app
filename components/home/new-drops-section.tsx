@@ -9,7 +9,7 @@ export default function NewDropsSection() {
   const { data, isLoading, isError, error, isFetching } = useGetProductsQuery();
 
   return (
-    <section className="container mx-auto my-14 md:my-28 px-4 md:px-0">
+    <section className="container mx-auto my-14 md:my-28">
       <div className="flex items-end justify-between px-4">
         <h1 className="uppercase font-bold text-xl md:text-7xl">
           Don&apos;t miss out <br />

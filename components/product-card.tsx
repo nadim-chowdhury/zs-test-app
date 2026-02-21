@@ -24,7 +24,7 @@ export default function ProductCard({ item, idx }: any) {
           {item?.title}
         </h3>
 
-        <Link href={`/product/${item?.slug}&uid=${item?.id}`}>
+        <Link href={`/product?${item?.slug}&uid=${item?.id}`}>
           <Button className="w-full bg-foreground uppercase md:h-12 text-xs md:text-base">
             View Product -{" "}
             <span className="text-amber-500">${item?.price}</span>
