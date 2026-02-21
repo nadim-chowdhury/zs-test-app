@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import YouMayLike from "@/components/you-may-like";
 import {
@@ -10,7 +10,7 @@ import {
   updateSize,
 } from "@/store/slices/cartSlice";
 import { AppDispatch } from "@/store";
-import { ChevronDown, Heart, Trash2 } from "lucide-react";
+import { CheckCircle, ChevronDown, Heart, Trash2 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
@@ -23,6 +23,7 @@ export default function CartPage() {
   );
   const dispatch = useDispatch<AppDispatch>();
   const [openSizeDropdown, setOpenSizeDropdown] = useState<string | null>(null);
+  const [showCheckoutModal, setShowCheckoutModal] = useState(false);
 
   return (
     <section className="container mx-auto my-14 md:my-24 px-4">
@@ -259,7 +260,10 @@ export default function CartPage() {
             <span>${(totalPrice * 1.08).toFixed(2)}</span>
           </div>
 
-          <Button className="w-full bg-foreground text-background hover:bg-foreground/90 uppercase font-semibold mt-1 h-11">
+          <Button
+            className="w-full bg-foreground text-background hover:bg-foreground/90 uppercase font-semibold mt-1 h-11"
+            onClick={() => setShowCheckoutModal(true)}
+          >
             Checkout
           </Button>
           <p className="underline font-semibold cursor-pointer opacity-60 hover:opacity-100 transition">
@@ -269,6 +273,38 @@ export default function CartPage() {
       </div>
 
       <YouMayLike />
+      {/* Congratulations Modal */}
+      {showCheckoutModal && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm animate-in fade-in duration-200"
+          onClick={() => setShowCheckoutModal(false)}
+        >
+          <div
+            className="bg-background rounded-3xl p-8 md:p-12 max-w-md w-[90%] text-center shadow-2xl animate-in zoom-in-95 fade-in duration-300"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="mx-auto w-20 h-20 rounded-full bg-green-100 flex items-center justify-center mb-6">
+              <CheckCircle className="w-12 h-12 text-green-500" />
+            </div>
+            <h2 className="text-3xl font-bold mb-2">Congratulations! 🎉</h2>
+            <p className="text-lg opacity-70 mb-1">
+              Your order has been placed successfully.
+            </p>
+            <p className="text-base opacity-50 mb-8">
+              Thank you for shopping with us! You will receive a confirmation
+              email shortly.
+            </p>
+            <div className="flex flex-col gap-3">
+              <Button
+                className="w-full bg-foreground text-background hover:bg-foreground/90 uppercase font-semibold h-11"
+                onClick={() => setShowCheckoutModal(false)}
+              >
+                Continue Shopping
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

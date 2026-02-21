@@ -193,7 +193,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <p className="my-4 md:my-8 text-center font-medium">
+      <p className="my-3 md:my-6 text-center font-medium">
         &copy; All rights reserved
       </p>
     </footer>

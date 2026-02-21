@@ -117,14 +117,16 @@ export default function Header() {
 
         {/* LOGO */}
         <div className="md:absolute md:left-1/2 md:-translate-x-1/2">
-          <Image
-            src="/assets/logo_dark.png"
-            alt="KICKS"
-            width={96}
-            height={28}
-            className="sm:w-[120px]"
-            priority
-          />
+          <Link href="/">
+            <Image
+              src="/assets/logo_dark.png"
+              alt="KICKS"
+              width={96}
+              height={28}
+              className="sm:w-[120px]"
+              priority
+            />
+          </Link>
         </div>
 
         {/* RIGHT ACTIONS */}
