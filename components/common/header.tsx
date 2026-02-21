@@ -157,7 +157,7 @@ export default function Header() {
           <Link href="/cart">
             <Button
               // onClick={() => dispatch(increment())}
-              className="w-9 rounded-full bg-orange-500 text-white hover:bg-orange-500"
+              className="w-9 rounded-full bg-orange-500 text-white hover:bg-orange-600 transition-all duration-500 ease-out"
             >
               {totalQuantity}
             </Button>

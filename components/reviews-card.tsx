@@ -21,7 +21,7 @@ function StarRating({ rating }: { rating: number }) {
 
 export default function ReviewsCard({ data }: any) {
   return (
-    <div className="rounded-3xl overflow-hidden bg-accent shadow-sm flex flex-col">
+    <div className="rounded-3xl overflow-hidden bg-accent shadow-sm flex flex-col group">
       {/* Top info section */}
       <div className="flex items-start justify-between p-4 md:p-5 h-2/5">
         <div className="flex flex-col gap-3 justify-between pr-3">
@@ -52,7 +52,7 @@ export default function ReviewsCard({ data }: any) {
           src={data.productImage}
           alt="product"
           fill
-          className="object-cover h-2/5"
+          className="object-cover h-2/5 group-hover:scale-105 transition-transform duration-500 ease-out group-hover:drop-shadow-2xl"
         />
       </div>
     </div>

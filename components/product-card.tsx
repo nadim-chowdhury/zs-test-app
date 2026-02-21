@@ -30,7 +30,7 @@ export default function ProductCard({ item, idx }: any) {
           // fill // Using fill for better responsiveness in a slider
           width={480}
           height={480}
-          className="object-cover rounded-[25px] transition-opacity duration-300 h-full"
+          className="object-cover rounded-[25px] transition-opacity duration-300 h-full group-hover:shadow-2xl"
           onError={(e) => {
             // Optional: fallback if image link is broken
             (e.target as any).src = "/assets/placeholder.png";

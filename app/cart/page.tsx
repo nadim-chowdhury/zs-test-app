@@ -75,7 +75,7 @@ export default function CartPage() {
                 }) => (
                   <div
                     key={`${item.id}-${item.selectedColor}-${item.selectedSize}`}
-                    className="flex flex-col lg:flex-row gap-4 py-5"
+                    className="flex flex-col lg:flex-row gap-4 py-5 group"
                   >
                     {/* Product image */}
                     <div className="shrink-0 w-48 h-48 bg-muted rounded-2xl overflow-hidden">
@@ -84,7 +84,7 @@ export default function CartPage() {
                         alt={item.title}
                         width={256}
                         height={256}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover group-hover:scale-110 hover:shadow-2xl transition-all duration-500 ease-out"
                       />
                     </div>
 
@@ -261,7 +261,7 @@ export default function CartPage() {
           </div>
 
           <Button
-            className="w-full bg-foreground text-background hover:bg-foreground/90 uppercase font-semibold mt-1 h-11"
+            className="w-full bg-foreground text-background uppercase font-semibold mt-1 h-11"
             onClick={() => setShowCheckoutModal(true)}
           >
             Checkout
@@ -273,6 +273,7 @@ export default function CartPage() {
       </div>
 
       <YouMayLike />
+
       {/* Congratulations Modal */}
       {showCheckoutModal && (
         <div
@@ -296,7 +297,7 @@ export default function CartPage() {
             </p>
             <div className="flex flex-col gap-3">
               <Button
-                className="w-full bg-foreground text-background hover:bg-foreground/90 uppercase font-semibold h-11"
+                className="w-full bg-foreground text-background uppercase font-semibold h-11"
                 onClick={() => setShowCheckoutModal(false)}
               >
                 Continue Shopping

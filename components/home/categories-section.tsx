@@ -64,38 +64,37 @@ export default function CategoriesSection() {
               visible?.map((cat, idx) => (
                 <div
                   key={cat?.id}
-                  className={`relative flex flex-col justify-between p-4 md:p-8 pt-6 md:pt-10 min-h-[280px] md:min-h-[620px] ${
+                  className={`relative flex flex-col justify-between p-4 md:p-8 pt-6 md:pt-10 min-h-[280px] md:min-h-[620px] overflow-hidden group transition-colors duration-500 ${
                     idx % 2 === 1
                       ? "bg-accent"
                       : "bg-muted rounded-tl-2xl md:rounded-tl-[4rem]"
                   }`}
                 >
-                  {/* Shoe image */}
-                  <div className="flex items-center justify-center flex-1">
-                    {/* <Image
-                      src={cat?.image || "/assets/category_1.png"}
-                      alt={cat?.name}
-                      width={400}
-                      height={280}
-                      className="object-contain w-full max-h-[200px] md:max-h-[480px] drop-shadow-xl"
-                    /> */}
-                    <SafeImage
-                      src={cat?.image}
-                      alt={cat?.name}
-                      width={400}
-                      height={280}
-                      className="object-cover md:w-1/2 max-h-[200px] md:max-h-[480px] drop-shadow-xl"
-                    />
-                  </div>
+                  {/* Animated Hover Layer */}
+                  <div className="absolute inset-0 w-full h-full bg-foreground/25 -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out z-0" />
 
-                  {/* Bottom row: label + arrow button */}
-                  <div className="flex items-end justify-between mx-4 mt-4 md:mt-6">
-                    <h3 className="font-bold text-xl md:text-4xl uppercase leading-tight whitespace-pre-line">
-                      {cat?.name}
-                    </h3>
-                    <button className="w-8 h-8 md:w-10 md:h-10 bg-foreground rounded flex items-center justify-center shrink-0 hover:opacity-80 transition-opacity">
-                      <ArrowUpRight className="w-5 h-5 md:w-6 md:h-6 text-background" />
-                    </button>
+                  {/* Content Wrapper (Must be relative and z-10 to stay above the sliding color) */}
+                  <div className="relative z-10 flex flex-col justify-between h-full">
+                    {/* Shoe image */}
+                    <div className="flex items-center justify-center flex-1">
+                      <SafeImage
+                        src={cat?.image}
+                        alt={cat?.name}
+                        width={400}
+                        height={280}
+                        className="object-cover md:w-1/2 max-h-[200px] md:max-h-[480px] drop-shadow-xl"
+                      />
+                    </div>
+
+                    {/* Bottom row: label + arrow button */}
+                    <div className="flex items-end justify-between mx-4 mt-4 md:mt-6">
+                      <h3 className="font-bold text-xl md:text-4xl uppercase leading-tight whitespace-pre-line group-hover:text-foreground transition-colors duration-500">
+                        {cat?.name}
+                      </h3>
+                      <button className="w-8 h-8 md:w-10 md:h-10 bg-foreground group-hover:bg-foreground rounded flex items-center justify-center shrink-0 hover:opacity-80 transition-opacity">
+                        <ArrowUpRight className="w-5 h-5 md:w-6 md:h-6 text-background group-hover:text-background" />
+                      </button>
+                    </div>
                   </div>
                 </div>
               ))

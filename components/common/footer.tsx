@@ -23,9 +23,17 @@ const company = [
 ];
 
 const socials = [
-  { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
-  { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
-  { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
+  {
+    icon: Facebook,
+    href: "https://www.facebook.com/nadim.ch0wdhury",
+    label: "Facebook",
+  },
+  {
+    icon: Instagram,
+    href: "https://www.instagram.com/nadim_ch0wdhury",
+    label: "Instagram",
+  },
+  { icon: Twitter, href: "https://x.com/nadim_ch0wdhury", label: "Twitter" },
   // TikTok – using SVG inline since lucide doesn't have it
 ];
 
@@ -61,11 +69,11 @@ export default function Footer() {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Email address"
                 required
-                className="flex-1 text-white placeholder:text-white text-sm px-4 py-3 rounded-l-lg outline-none min-w-0 border border-white h-10"
+                className="flex-1 text-white placeholder:text-white text-sm px-4 py-3 rounded-l-lg bg-transparent border border-white h-10 outline-none focus-visible:ring-1 focus-visible:ring-white focus-visible:ring-offset-0 focus-visible:border-white"
               />
               <Button
                 type="submit"
-                className="bg-foreground text-background text-sm font-bold uppercase px-5 py-3 rounded-r-lg hover:opacity-80 transition-opacity shrink-0 h-10"
+                className="bg-foreground hover:bg-foreground/90 text-background text-sm font-bold uppercase px-5 py-3 rounded-r-lg hover:opacity-80 transition-opacity shrink-0 h-10"
               >
                 Submit
               </Button>

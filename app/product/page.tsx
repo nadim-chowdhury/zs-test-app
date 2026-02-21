@@ -57,7 +57,7 @@ export function ProductContent() {
 
   return (
     <section className="container mx-auto my-14 md:my-24 px-4">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 overflow-hidden">
         {isLoading || isFetching || !data ? (
           <>
             {/* Desktop image skeleton */}
@@ -97,7 +97,7 @@ export function ProductContent() {
                   alt="banner_1"
                   width={160}
                   height={160}
-                  className={`w-full h-full object-cover bg-white ${idx === 0 && "rounded-tl-4xl"} ${idx === 1 && "rounded-tr-4xl"} ${idx === 2 && "rounded-bl-4xl"} ${idx === 3 && "rounded-br-4xl"}`}
+                  className={`w-full h-full object-cover bg-white ${idx === 0 && "rounded-tl-4xl"} ${idx === 1 && "rounded-tr-4xl"} ${idx === 2 && "rounded-bl-4xl"} ${idx === 3 && "rounded-br-4xl"} hover:scale-105 hover:shadow-2xl transition-all duration-500 ease-out`}
                 />
               ))}
             </div>

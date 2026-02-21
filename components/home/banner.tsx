@@ -13,10 +13,15 @@ export default function Banner() {
       </div>
 
       <div
-        className="h-96 md:h-[820px] bg-cover bg-center rounded-3xl md:rounded-[64px] overflow-hidden relative mx-4 md:mx-0"
-        style={{ backgroundImage: "url('/assets/banner_1.jpg')" }}
+        className="h-96 md:h-[820px] bg-cover bg-center rounded-3xl md:rounded-[64px] overflow-hidden relative mx-4 md:mx-0 group"
+        // style={{ backgroundImage: "url('/assets/banner_1.jpg')" }}
       >
-        <p className="rotate-270 absolute top-1/4 -left-16 md:-left-22 p-2 md:p-6 text-sm md:text-base bg-foreground text-background tracking-tight md:tracking-wider rounded-b-lg md:rounded-b-2xl">
+        <div
+          className="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-in-out group-hover:scale-105"
+          style={{ backgroundImage: "url('/assets/banner_1.jpg')" }}
+        />
+
+        <p className="rotate-270 absolute top-1/4 -left-16 md:-left-22 p-2 md:p-4 text-sm md:text-base bg-foreground text-background tracking-tight md:tracking-wider rounded-b-lg md:rounded-b-2xl">
           Nike product of the year
         </p>
 
@@ -50,7 +55,7 @@ export default function Banner() {
           />
         </div>
 
-        <div className="absolute top-0 bottom-0 left-0 right-0 w-full h-full bg-linear-to-t from-foreground/60 from-5% to-transparent" />
+        <div className="absolute top-0 bottom-0 left-0 right-0 w-full h-full bg-linear-to-t from-foreground/60 from-0% to-transparent to-50%" />
       </div>
     </section>
   );
