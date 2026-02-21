@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Rubik } from "next/font/google";
 import "./globals.css";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import ThemeProvider from "@/components/providers/theme-provider";
@@ -7,9 +7,9 @@ import StoreProvider from "@/components/providers/store-provider";
 import Header from "@/components/common/header";
 import Footer from "@/components/common/footer";
 
-const inter = Inter({
+const rubik = Rubik({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-rubik",
 });
 
 export const metadata: Metadata = {
@@ -29,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.variable} antialiased bg-background text-foreground`}
+        className={`${rubik.variable} antialiased bg-background text-foreground`}
       >
         <StoreProvider>
           <ThemeProvider
