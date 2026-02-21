@@ -119,10 +119,10 @@ export default function Header() {
         <div className="md:absolute md:left-1/2 md:-translate-x-1/2">
           <Link href="/">
             <Image
-              src="/assets/logo_dark.png"
+              src="/assets/logo_big.png"
               alt="KICKS"
-              width={96}
-              height={28}
+              width={320}
+              height={160}
               className="sm:w-[120px]"
               priority
             />
