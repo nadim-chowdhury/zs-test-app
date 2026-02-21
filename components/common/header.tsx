@@ -45,8 +45,6 @@ export default function Header() {
   const { items, totalQuantity, totalPrice } = useSelector(
     (state: any) => state.cart,
   );
-  console.log("🚀 ~ totalQuantity:", totalQuantity);
-  const dispatch = useDispatch();
 
   return (
     <header className=" pt-4 md:pt-8 mx-4 md:px-0 sticky top-2 md:top-4 z-50">
