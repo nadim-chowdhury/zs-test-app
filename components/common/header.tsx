@@ -42,7 +42,10 @@ const womenShoes = [
 export default function Header() {
   const [open, setOpen] = useState(false);
   const count = useSelector((state: any) => state.counter.value);
-  console.log("🚀 ~ count:", count);
+  const { items, totalQuantity, totalPrice } = useSelector(
+    (state: any) => state.cart,
+  );
+  console.log("🚀 ~ totalQuantity:", totalQuantity);
   const dispatch = useDispatch();
 
   return (
@@ -151,12 +154,14 @@ export default function Header() {
             <User className="w-6 h-6" strokeWidth={3} />
           </Button>
 
-          <Button
-            onClick={() => dispatch(increment())}
-            className="w-9 rounded-full bg-orange-500 text-white hover:bg-orange-500"
-          >
-            {count}
-          </Button>
+          <Link href="/cart">
+            <Button
+              // onClick={() => dispatch(increment())}
+              className="w-9 rounded-full bg-orange-500 text-white hover:bg-orange-500"
+            >
+              {totalQuantity}
+            </Button>
+          </Link>
         </div>
       </nav>
 

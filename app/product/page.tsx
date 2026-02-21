@@ -4,10 +4,13 @@ import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import YouMayLike from "@/components/you-may-like";
 import { useGetProductByIdQuery } from "@/services/productApi";
+import { AppDispatch } from "@/store";
+import { addToCart } from "@/store/slices/cartSlice";
 import { Heart } from "lucide-react";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 
 const colors = [
   "red",
@@ -35,6 +38,7 @@ export function ProductContent() {
   const searchParams = useSearchParams();
   const uid = searchParams.get("uid");
   const id = Number(uid);
+  const dispatch = useDispatch<AppDispatch>();
 
   const { data, isLoading, isError, isFetching } = useGetProductByIdQuery(id, {
     skip: Number.isNaN(id),
@@ -206,7 +210,19 @@ export function ProductContent() {
 
           <div className="w-full mt-6">
             <div className="flex items-center gap-2 w-full">
-              <Button className="flex-1 bg-foreground uppercase text-xs md:text-base">
+              <Button
+                onClick={() => {
+                  if (!data) return;
+                  dispatch(
+                    addToCart({
+                      product: data,
+                      selectedColor,
+                      selectedSize,
+                    }),
+                  );
+                }}
+                className="flex-1 bg-foreground uppercase text-xs md:text-base"
+              >
                 Add To Cart
               </Button>
 
