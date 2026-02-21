@@ -147,6 +147,45 @@ const cartSlice = createSlice({
       state.totalPrice -= item.price;
     },
 
+    updateSize: (
+      state,
+      action: PayloadAction<{
+        id: number;
+        selectedColor: string;
+        oldSize: string;
+        newSize: string;
+      }>,
+    ) => {
+      const { id, selectedColor, oldSize, newSize } = action.payload;
+      if (oldSize === newSize) return;
+
+      const itemIndex = state.items.findIndex(
+        (item) =>
+          item.id === id &&
+          item.selectedColor === selectedColor &&
+          item.selectedSize === oldSize,
+      );
+
+      if (itemIndex === -1) return;
+
+      const existingNewIndex = state.items.findIndex(
+        (item) =>
+          item.id === id &&
+          item.selectedColor === selectedColor &&
+          item.selectedSize === newSize,
+      );
+
+      if (existingNewIndex !== -1) {
+        // Merge quantities into the existing item with the new size
+        state.items[existingNewIndex].quantity +=
+          state.items[itemIndex].quantity;
+        state.items.splice(itemIndex, 1);
+      } else {
+        // Just update the size
+        state.items[itemIndex].selectedSize = newSize;
+      }
+    },
+
     clearCart: (state) => {
       state.items = [];
       state.totalQuantity = 0;
@@ -160,6 +199,7 @@ export const {
   removeFromCart,
   incrementQuantity,
   decrementQuantity,
+  updateSize,
   clearCart,
 } = cartSlice.actions;
 

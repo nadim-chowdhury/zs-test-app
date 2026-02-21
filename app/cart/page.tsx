@@ -1,11 +1,13 @@
 "use client";
 
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import YouMayLike from "@/components/you-may-like";
 import {
   decrementQuantity,
   incrementQuantity,
   removeFromCart,
+  updateSize,
 } from "@/store/slices/cartSlice";
 import { AppDispatch } from "@/store";
 import { ChevronDown, Heart, Trash2 } from "lucide-react";
@@ -13,11 +15,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 
+const SIZES = ["28", "30", "32", "34", "36", "38"];
+
 export default function CartPage() {
   const { items, totalQuantity, totalPrice } = useSelector(
     (state: any) => state.cart,
   );
   const dispatch = useDispatch<AppDispatch>();
+  const [openSizeDropdown, setOpenSizeDropdown] = useState<string | null>(null);
 
   return (
     <section className="container mx-auto my-14 md:my-24 px-4">
@@ -106,10 +111,57 @@ export default function CartPage() {
 
                       {/* Size + Quantity */}
                       <div className="flex items-center gap-4 mt-1">
-                        <button className="flex items-center gap-1 text-sm font-medium border border-border rounded-lg px-3 py-1.5 hover:bg-background/50 transition">
-                          Size {item.selectedSize}
-                          <ChevronDown className="w-3.5 h-3.5 opacity-60" />
-                        </button>
+                        <div className="relative">
+                          <button
+                            onClick={() =>
+                              setOpenSizeDropdown(
+                                openSizeDropdown ===
+                                  `${item.id}-${item.selectedColor}-${item.selectedSize}`
+                                  ? null
+                                  : `${item.id}-${item.selectedColor}-${item.selectedSize}`,
+                              )
+                            }
+                            className="flex items-center gap-1 text-sm font-medium border border-border rounded-lg px-3 py-1.5 hover:bg-background/50 transition"
+                          >
+                            Size {item.selectedSize}
+                            <ChevronDown className="w-3.5 h-3.5 opacity-60" />
+                          </button>
+
+                          {openSizeDropdown ===
+                            `${item.id}-${item.selectedColor}-${item.selectedSize}` && (
+                            <>
+                              <div
+                                className="fixed inset-0 z-10"
+                                onClick={() => setOpenSizeDropdown(null)}
+                              />
+                              <div className="absolute top-full left-0 mt-1 z-20 bg-background border border-border rounded-lg shadow-lg py-1 min-w-[100px]">
+                                {SIZES.map((size) => (
+                                  <button
+                                    key={size}
+                                    onClick={() => {
+                                      dispatch(
+                                        updateSize({
+                                          id: item.id,
+                                          selectedColor: item.selectedColor,
+                                          oldSize: item.selectedSize,
+                                          newSize: size,
+                                        }),
+                                      );
+                                      setOpenSizeDropdown(null);
+                                    }}
+                                    className={`w-full text-left px-3 py-1.5 text-sm font-medium hover:bg-accent transition ${
+                                      item.selectedSize === size
+                                        ? "text-primary font-bold"
+                                        : ""
+                                    }`}
+                                  >
+                                    {size}
+                                  </button>
+                                ))}
+                              </div>
+                            </>
+                          )}
+                        </div>
                         <div className="flex items-center gap-2 border border-border rounded-lg px-2 py-1">
                           <button
                             onClick={() =>
