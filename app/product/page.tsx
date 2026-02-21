@@ -221,17 +221,17 @@ export function ProductContent() {
                     }),
                   );
                 }}
-                className="flex-1 bg-foreground uppercase text-xs md:text-base"
+                className="flex-1 bg-foreground uppercase text-xs md:text-base h-11"
               >
                 Add To Cart
               </Button>
 
-              <Button className="bg-black shrink-0">
+              <Button className="bg-black shrink-0 h-11">
                 <Heart />
               </Button>
             </div>
 
-            <Button className="w-full uppercase text-xs md:text-base mt-2 bg-primary">
+            <Button className="w-full uppercase text-xs md:text-base mt-2 bg-primary h-11">
               Buy it now
             </Button>
           </div>

@@ -259,7 +259,7 @@ export default function CartPage() {
             <span>${(totalPrice * 1.08).toFixed(2)}</span>
           </div>
 
-          <Button className="w-full bg-foreground text-background hover:bg-foreground/90 uppercase font-semibold mt-1">
+          <Button className="w-full bg-foreground text-background hover:bg-foreground/90 uppercase font-semibold mt-1 h-11">
             Checkout
           </Button>
           <p className="underline font-semibold cursor-pointer opacity-60 hover:opacity-100 transition">

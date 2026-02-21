@@ -9,7 +9,6 @@ import { Skeleton } from "../ui/skeleton";
 export default function CategoriesSection() {
   const { data, isLoading, isError, error, isFetching } =
     useGetCategoriesQuery();
-  console.log("🚀 ~ data:", data);
 
   const [startIndex, setStartIndex] = useState(0);
 
@@ -18,11 +17,11 @@ export default function CategoriesSection() {
   const canNext = startIndex + visibleCount < (data ? data.length : 0);
 
   const handlePrev = () => {
-    if (canPrev) setStartIndex((i) => i - 1);
+    if (canPrev) setStartIndex((i) => i - 2);
   };
 
   const handleNext = () => {
-    if (canNext) setStartIndex((i) => i + 1);
+    if (canNext) setStartIndex((i) => i + 2);
   };
 
   const visible = data?.slice(startIndex, startIndex + visibleCount);
@@ -73,12 +72,19 @@ export default function CategoriesSection() {
                 >
                   {/* Shoe image */}
                   <div className="flex items-center justify-center flex-1">
-                    <Image
-                      src={cat?.image}
+                    {/* <Image
+                      src={cat?.image || "/assets/category_1.png"}
                       alt={cat?.name}
                       width={400}
                       height={280}
                       className="object-contain w-full max-h-[200px] md:max-h-[480px] drop-shadow-xl"
+                    /> */}
+                    <SafeImage
+                      src={cat?.image}
+                      alt={cat?.name}
+                      width={400}
+                      height={280}
+                      className="object-cover md:w-1/2 max-h-[200px] md:max-h-[480px] drop-shadow-xl"
                     />
                   </div>
 
@@ -100,3 +106,17 @@ export default function CategoriesSection() {
     </section>
   );
 }
+
+const SafeImage = ({ src, alt, ...props }: any) => {
+  const [imgSrc, setImgSrc] = useState(src);
+
+  return (
+    <Image
+      {...props}
+      src={imgSrc || "/assets/category_1.png"}
+      alt={alt}
+      // If the URL is broken/404, this triggers:
+      onError={() => setImgSrc("/assets/category_1.png")}
+    />
+  );
+};
