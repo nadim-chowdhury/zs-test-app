@@ -47,7 +47,7 @@ export default function Footer() {
 
   return (
     <footer className="container mx-auto">
-      {/* ── Newsletter Banner ── */}
+      {/* Newsletter Banner */}
       <div className="bg-primary rounded-t-3xl md:rounded-t-[48px] px-6 md:px-16 py-10 md:py-22 mx-4">
         <div className="container mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
           {/* Left copy */}
@@ -97,13 +97,13 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* ── Dark Nav Section ── */}
+      {/* Dark Nav Section */}
       <div className="bg-linear-to-b from-primary to-transparent from-0% to-20% mx-4">
         <div className="bg-foreground/90 px-6 md:px-16 pt-12 pb-0 rounded-b-4xl rounded-t-4xl md:rounded-b-[48px] md:rounded-t-[48px]">
-          <div className="container mx-auto grid grid-cols-2 md:grid-cols-5 gap-10 md:gap-8 pb-6 md:pb-12">
+          <div className="container mx-auto grid grid-cols-2 md:grid-cols-5 gap-8 pb-6 md:pb-12">
             {/* About us */}
             <div className="col-span-2 ">
-              <h4 className="text-amber-500 font-bold text-lg md:text-3xl mb-3">
+              <h4 className="text-amber-500 font-bold text-2xl md:text-3xl md:not-only:mb-3">
                 About us
               </h4>
               <p className="text-background/80 leading-relaxed font-medium">
@@ -114,10 +114,10 @@ export default function Footer() {
 
             {/* Categories */}
             <div className="col-span-2 md:col-span-1">
-              <h4 className="text-amber-500 font-bold text-lg md:text-xl mb-3">
+              <h4 className="text-amber-500 font-bold text-lg md:text-xl md:mb-3">
                 Categories
               </h4>
-              <ul className="flex flex-col gap-2">
+              <ul className="flex flex-col md:gap-2">
                 {categories.map((item) => (
                   <li key={item.label}>
                     <Link
@@ -133,10 +133,10 @@ export default function Footer() {
 
             {/* Company */}
             <div className="col-span-2 md:col-span-1">
-              <h4 className="text-amber-500 font-bold text-lg md:text-xl mb-3">
+              <h4 className="text-amber-500 font-bold text-lg md:text-xl md:mb-3">
                 Company
               </h4>
-              <ul className="flex flex-col gap-2">
+              <ul className="flex flex-col md:gap-2">
                 {company.map((item) => (
                   <li key={item.label}>
                     <Link
@@ -152,17 +152,17 @@ export default function Footer() {
 
             {/* Follow us */}
             <div className="col-span-2 md:col-span-1">
-              <h4 className="text-amber-500 font-bold text-lg md:text-xl mb-3">
+              <h4 className="text-amber-500 font-bold text-lg md:text-xl mb-1 md:mb-3">
                 Follow us
               </h4>
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2 md:gap-3">
                 {socials.map(({ icon: Icon, href, label }) => (
                   <Link
                     key={label}
                     href={href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-9 h-9 rounded-full flex items-center justify-center transition-colors"
+                    className="w-9 h-9 rounded-full flex items-center justify-center transition-colors bg-muted/10"
                     aria-label={label}
                   >
                     <Icon className="w-4 h-4 text-background" />
@@ -173,7 +173,7 @@ export default function Footer() {
                   href="https://tiktok.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-full flex items-center justify-center transition-colors"
+                  className="w-9 h-9 rounded-full flex items-center justify-center transition-colors bg-muted/10"
                   aria-label="TikTok"
                 >
                   <svg
@@ -189,7 +189,7 @@ export default function Footer() {
           </div>
 
           {/* ── Giant KICKS watermark ── */}
-          <div className="overflow-hidden flex items-center justify-center mt-8">
+          <div className="overflow-hidden flex items-center justify-center mt-4 md:mt-8">
             <Image
               src="/assets/logo_half.png"
               alt="KICKS"
