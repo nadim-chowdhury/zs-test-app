@@ -57,7 +57,7 @@ export default function CategoriesSection() {
           <div className="grid md:grid-cols-2">
             {isLoading || !data || isFetching ? (
               <>
-                <Skeleton className="min-h-[280px] md:min-h-[620px] rounded-tl-2xl md:rounded-tl-[4rem] rounded-r-none bg-muted" />
+                <Skeleton className="min-h-[280px] md:min-h-[620px] rounded-tl-2xl md:rounded-tl-[4rem] rounded-bl-none rounded-r-none bg-muted" />
                 <Skeleton className="min-h-[280px] md:min-h-[620px] bg-accent rounded-none" />
               </>
             ) : (
@@ -67,7 +67,7 @@ export default function CategoriesSection() {
                   className={`relative flex flex-col justify-between p-4 md:p-8 pt-6 md:pt-10 min-h-[280px] md:min-h-[620px] overflow-hidden group transition-colors duration-500 ${
                     idx % 2 === 1
                       ? "bg-accent"
-                      : "bg-muted rounded-tl-2xl md:rounded-tl-[4rem]"
+                      : "bg-muted rounded-tl-2xl md:rounded-tl-[4rem] rounded-bl-none"
                   }`}
                 >
                   {/* Animated Hover Layer */}

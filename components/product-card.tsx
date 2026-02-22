@@ -23,7 +23,7 @@ export default function ProductCard({ item, idx }: any) {
   return (
     <div className="w-full relative flex flex-col justify-between group">
       {/* Image Slider Container */}
-      <div className="relative w-full overflow-hidden rounded-[30px] bg-white p-2 h-2/3">
+      <div className="relative w-full h-full md:h-2/3 overflow-hidden rounded-[30px] bg-white p-2">
         <Image
           src={images[currentImageIndex] || "/assets/placeholder.png"}
           alt={item?.title || "product"}
@@ -80,18 +80,17 @@ export default function ProductCard({ item, idx }: any) {
       </div>
 
       {/* Product Info */}
-      <div className="h-1/3 flex flex-col justify-between">
+      <div className="h-full md:h-1/3 flex flex-col justify-between">
         <h3 className="my-2 md:my-4 text-lg md:text-2xl font-bold uppercase">
           {item?.title}
         </h3>
+        <Link href={`/product?slug=${item?.slug}&uid=${item?.id}`}>
+          <Button className="w-full bg-foreground uppercase md:h-12 text-xs md:text-base">
+            View Product -{" "}
+            <span className="ml-1 text-amber-500">${item?.price}</span>
+          </Button>
+        </Link>
       </div>
-
-      <Link href={`/product?slug=${item?.slug}&uid=${item?.id}`}>
-        <Button className="w-full bg-foreground uppercase md:h-12 text-xs md:text-base">
-          View Product -{" "}
-          <span className="ml-1 text-amber-500">${item?.price}</span>
-        </Button>
-      </Link>
     </div>
   );
 }

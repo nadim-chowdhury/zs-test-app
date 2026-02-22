@@ -22,18 +22,15 @@ export default function NewDropsSection() {
       </div>
 
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 md:gap-8 my-12 px-4">
-        {isLoading || !data || isFetching ? (
-          <>
-            <Skeleton className="h-[340px]" />
-            <Skeleton className="h-[340px]" />
-            <Skeleton className="h-[340px]" />
-            <Skeleton className="h-[340px]" />
-          </>
-        ) : (
-          data
-            ?.slice(0, 4)
-            .map((item, idx) => <ProductCard key={idx} item={item} idx={idx} />)
-        )}
+        {isLoading || !data || isFetching
+          ? [...Array(4)].map((_, i) => (
+              <Skeleton key={i} className="h-[340px]" />
+            ))
+          : data
+              ?.slice(0, 4)
+              .map((item, idx) => (
+                <ProductCard key={idx} item={item} idx={idx} />
+              ))}
       </div>
     </section>
   );
