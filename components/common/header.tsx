@@ -123,7 +123,7 @@ export default function Header() {
               alt="KICKS"
               width={320}
               height={160}
-              className="sm:w-[120px]"
+              className="w-[100px] sm:w-[180px]"
               priority
             />
           </Link>

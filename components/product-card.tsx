@@ -84,14 +84,14 @@ export default function ProductCard({ item, idx }: any) {
         <h3 className="my-2 md:my-4 text-lg md:text-2xl font-bold uppercase">
           {item?.title}
         </h3>
-
-        <Link href={`/product?slug=${item?.slug}&uid=${item?.id}`}>
-          <Button className="w-full bg-foreground uppercase md:h-12 text-xs md:text-base">
-            View Product -{" "}
-            <span className="ml-1 text-amber-500">${item?.price}</span>
-          </Button>
-        </Link>
       </div>
+
+      <Link href={`/product?slug=${item?.slug}&uid=${item?.id}`}>
+        <Button className="w-full bg-foreground uppercase md:h-12 text-xs md:text-base">
+          View Product -{" "}
+          <span className="ml-1 text-amber-500">${item?.price}</span>
+        </Button>
+      </Link>
     </div>
   );
 }
